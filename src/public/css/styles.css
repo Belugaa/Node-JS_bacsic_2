@@ -1,0 +1,81 @@
+h1 {
+    color: red;
+}
+
+img {
+    width: 50%;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.form_create {
+  text-align: center;
+}
+
+.submit_create{
+  cursor: pointer;
+}
+
+.detail-user{
+    border: none;
+    font: inherit;
+    color: #fff;
+    background-color: rgb(121, 117, 115);
+    padding: 12px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.detail-user:hover {
+    cursor: pointer;
+    color: rgb(2, 2, 2);
+    background-color: rgb(194, 182, 182);
+}
+.delete-user {
+    background-color: rgb(245, 27, 11);
+}
+
+.width-action {
+  width: 25%;
+}
