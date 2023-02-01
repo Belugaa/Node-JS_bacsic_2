@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="/css/editUser.css">
+</head>
+<body>
+    <div class="form_create">
+        <h2>Chỉnh sửa tài khoản</h2>
+        <form action="/account/update-acc/<%= dataUser.mstk %>" method="post">
+            <!-- <label>MaSoTaiKhoan</label><br>
+            <input type="text" name="mstk" value="<%= dataUser.mstk %>" ><br><br> -->
+            <input class="mstk" type="text" name="mstk" value="<%= dataUser.mstk %>"><br><br>
+            <label>UserName</label><br>
+            <input type="text" name="UserName" value="<%= dataUser.UserName %>" ><br><br>    
+            <label>PassWord</label><br>
+            <input type="text" name="PassWord" value="<%= dataUser.PassWord %>"><br><br>
+            <label>RoleCode</label><br>
+            <input type="text" name="Role" value="<%= dataUser.Role %>"><br><br>
+            <input class="submit_create" type="submit" value="Submit">
+        </form>
+    </div> 
+</body>
+</html>

@@ -1,19 +1,22 @@
 // get the client
-const mysql = require('mysql2');
+const sql = require('mssql/msnodesqlv8')
 
 // create the connection to database
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'nodeJS'
+const config = {
+  server: 'CHUNGVIPPRO\\MSSQLSERVER01',
+  database: 'chung',
+  driver: 'msnodesqlv8',
+  options: {
+    trustedConnection: true
+  }
+  
+}
+
+const conn = new sql.ConnectionPool(config).connect().then(pool =>{
+  return pool;
 });
 
-// simple query
-// connection.query(
-//   'SELECT * FROM `users`',
-//   function(err, results, fields) {
-//     console.log(results); // results contains rows returned by server
-//   }
-// );
-
-module.exports = connection;
+module.exports = {
+  conn: conn,
+  sql: sql
+}

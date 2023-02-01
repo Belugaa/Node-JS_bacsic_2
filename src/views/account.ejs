@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lí User</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Trang chủ</a>
+        <a href="#news">Quản lí tài khoản</a>
+        <a href="#contact">Quản lí nhân viên</a>
+        <a href="#about">Quản lí lương</a>
+        <a href="#about">Báo cáo thống kê</a>
+    </div>
+    
+    <div style="padding-left:16px">
+        <h2>Danh sách tài khoản</h2>
+        <table>
+            <tr>
+                <th>Mã số TK</th>
+                <th>UserName</th>
+                <th>PassWord</th>
+                <th>Role</th>
+                <th class="width-action">Actions</th>
+            </tr>
+            <!-- <%= dataUser.length %> -->
+            <% for(var i=0; i < dataUser.length; i++) { %>
+                <tr>
+                    <td><%= dataUser[i].mstk %></td>
+                    <td><%= dataUser[i].UserName %></td>
+                    <td><%= dataUser[i].PassWord %></td>
+                    <td><%= dataUser[i].Role %></td>
+                    <td>
+                        <form style="display: inline;" action="/account/edit-acc/<%= dataUser[i].mstk %>" method="get">
+                            <input type="submit" value="Edit" class="detail-user" >
+                        </form>
+                        <form style="display: inline;" action="/account/delete-acc/<%= dataUser[i].mstk %>" method="post">
+                            <input type="submit" value="Delete" class="detail-user delete-user" >
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+        </table>
+        <div class="form_create">
+            <h2>Cấp tài khoản mới</h2>
+            <form action="/create-new-user" method="post">
+                <label>Mstk:</label><br>
+                <input type="text" name="mstk" ><br><br>    
+                <label>UserName:</label><br>
+                <input type="text" name="UserName" ><br><br>
+                <label>PassWord:</label><br>
+                <input type="text" name="PassWord" ><br><br>
+                <label>Role:</label><br>
+                <input type="text" name="Role" ><br><br>
+                <input class="submit_create" type="submit" value="Submit">
+            </form>
+        </div> 
+    </div>
+</body>
+</html>

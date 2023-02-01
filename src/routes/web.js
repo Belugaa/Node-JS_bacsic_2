@@ -1,21 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const homeController = require('../controllers/homeController');
-
+import accountRoute from './api/accountAPI';
+import hosoRoute from './api/hoSo.controller'
 
 const initWebRoute = (app) => {
-    router.get('/',homeController.getHomePage);
-    
-    router.get('/detail/user/:id',homeController.getDetail)
-    
-    router.post('/create-new-user',homeController.createNewUser);
-    
-    router.post('/delete-user/:id',homeController.deleteUser);
-
-    router.get('/edit-user/:id',homeController.editUser);
-
-    router.post('/update-user/:id', homeController.updateUser);
-    return app.use('/', router);
+    app.use('/account', accountRoute);
+    app.use('/hoso', hosoRoute);
 }
 
 module.exports = initWebRoute;
