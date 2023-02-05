@@ -19,7 +19,7 @@ const createNewAccount = async (req, res) => {
     .input('Role', sql.Int, req.body.Role)
     .query(sqlString, (err, data) => {
         if(err) console.log(err);
-        return res.redirect('/');
+        return res.redirect('/account');
     });
 }
 
@@ -30,7 +30,7 @@ const deleteAccount = async (req, res) => {
     .input('mstk', sql.VarChar, req.params.id)
     .query(sqlString, (err, data) => {
         if(err) console.log(err);
-        return res.redirect('/');
+        return res.redirect('/account');
     });
 }
 
@@ -56,7 +56,7 @@ const updateAccount = async (req, res) => {
     .input('Role', sql.Int, req.body.Role)
     .query(sqlString, (err, data) => {
         if(err) console.log(err);
-        return res.redirect('/');
+        return res.redirect('/account');
     });
 }
 
