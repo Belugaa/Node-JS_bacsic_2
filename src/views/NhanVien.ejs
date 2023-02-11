@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lí User</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div style="padding-left:16px">
+        <h2>Danh sách Nhân Viên</h2>
+        <table>
+            <tr>
+                <th>Mã Nhân Viên</th>
+                <th>Họ Tên</th>
+                <th>Ngày Sinh</th>
+                <th>Địa chỉ</th>
+                <th>Điện thoại</th>
+                <th>Giới tính</th>
+                <th>Chức Vụ</th>
+                <th>CCCD</th>
+                <th>Email</th>
+                <th>Mã Lương</th>
+                <th>Ngày bắt đầu làm</th>
+                <th class="width-action">Actions</th>
+            </tr>
+            <!-- <%= dataUser.length %> -->
+            <% for(var i=0; i < dataUser.length; i++) { %>
+                <tr>
+                    <td><%= dataUser[i].MaNhanVien %></td>
+                    <td><%= dataUser[i].HoTen %></td>
+                    <td><%= dataUser[i].NgaySinh %></td>
+                    <td><%= dataUser[i].DiaChi %></td>
+                    <td><%= dataUser[i].DienThoai %></td>
+                    <td><%= dataUser[i].GioiTinh %></td>
+                    <td><%= dataUser[i].ChucVu %></td>
+                    <td><%= dataUser[i].CCCD %></td>
+                    <td><%= dataUser[i].Email %></td>
+                    <td><%= dataUser[i].MaLuong %></td>
+                    <td><%= dataUser[i].NgayBatDauLam %></td>
+                    <td>
+                        <form style="display: inline;" action="" method="get">
+                            <input type="submit" value="Edit" class="detail-user" >
+                        </form>
+                        <form style="display: inline;" action="" method="post">
+                            <input type="submit" value="Delete" class="detail-user delete-user" >
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+</body>
+</html>

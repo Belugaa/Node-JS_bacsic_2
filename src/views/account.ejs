@@ -11,7 +11,7 @@
     <div class="topnav">
         <a class="active" href="#home">Trang chủ</a>
         <a href="#news">Quản lí tài khoản</a>
-        <a href="#contact">Quản lí nhân viên</a>
+        <a href="/hoso/nv">Quản lí nhân viên</a>
         <a href="#about">Quản lí lương</a>
         <a href="#about">Báo cáo thống kê</a>
     </div>
@@ -20,7 +20,8 @@
         <h2>Danh sách tài khoản</h2>
         <table>
             <tr>
-                <th>Mã số TK</th>
+                <th>Mã Tài Khoản</th>
+                <th>Mã Nhân Viên</th>
                 <th>UserName</th>
                 <th>PassWord</th>
                 <th>Role</th>
@@ -29,15 +30,16 @@
             <!-- <%= dataUser.length %> -->
             <% for(var i=0; i < dataUser.length; i++) { %>
                 <tr>
-                    <td><%= dataUser[i].mstk %></td>
+                    <td><%= dataUser[i].MaTaiKhoan %></td>
+                    <td><%= dataUser[i].MaNhanVien %></td>
                     <td><%= dataUser[i].UserName %></td>
                     <td><%= dataUser[i].PassWord %></td>
                     <td><%= dataUser[i].Role %></td>
                     <td>
-                        <form style="display: inline;" action="/account/edit-acc/<%= dataUser[i].mstk %>" method="get">
+                        <form style="display: inline;" action="/account/edit-acc/<%= dataUser[i].MaTaiKhoan %>" method="get">
                             <input type="submit" value="Edit" class="detail-user" >
                         </form>
-                        <form style="display: inline;" action="/account/delete-acc/<%= dataUser[i].mstk %>" method="post">
+                        <form style="display: inline;" action="/account/delete-acc/<%= dataUser[i].MaTaiKhoan %>" method="post">
                             <input type="submit" value="Delete" class="detail-user delete-user" >
                         </form>
                     </td>
@@ -47,14 +49,48 @@
         <div class="form_create">
             <h2>Cấp tài khoản mới</h2>
             <form action="/account/create-new-acc" method="post">
-                <label>Mstk:</label><br>
-                <input type="text" name="mstk" ><br><br>    
-                <label>UserName:</label><br>
-                <input type="text" name="UserName" ><br><br>
-                <label>PassWord:</label><br>
-                <input type="text" name="PassWord" ><br><br>
-                <label>Role:</label><br>
-                <input type="text" name="Role" ><br><br>
+                <table>
+                    <tr>
+                        <th>
+                            <div>
+                                <h2>Tài Khoản</h2>
+                                <label>UserName:</label><br>
+                                <input type="text" name="UserName" ><br><br>
+                                <label>PassWord:</label><br>
+                                <input type="text" name="PassWord" ><br><br>
+                                <label>Role:</label><br>
+                                <input type="text" name="Role" ><br><br>
+                            </div>
+                        </th>
+                        <th>
+                            <div>
+                                <h2>Hồ sơ</h2>
+                                <label>Họ Tên:</label><br>
+                                <input type="text" name="HoTen" ><br><br>
+                                <label>Ngày sinh:</label><br>
+                                <input type="text" name="NgaySinh" ><br><br>
+                                <label>Địa Chỉ:</label><br>
+                                <input type="text" name="DiaChi" ><br><br>
+                                <label>Điện thoại:</label><br>
+                                <input type="text" name="DienThoai" ><br><br>
+                                <label>Giới tính:</label><br>
+                                <input type="text" name="GioiTinh" ><br><br>
+                                <label>Chức vụ:</label><br>
+                                <input type="text" name="ChucVu" ><br><br>
+                                <label>CCCD:</label><br>
+                                <input type="text" name="CCCD" ><br><br>
+                                <label>Email:</label><br>
+                                <input type="text" name="Email" ><br><br>
+                                <label>Mã Lương:</label><br>
+                                <input type="text" name="MaLuong" ><br><br>
+                                <label>Ngày bắt đầu làm</label><br>
+                                <input type="text" name="NgayBatDauLam" ><br><br>
+                                <!-- <label>Trạng thái làm việc</label><br>
+                                <input type="text" name="NgayNghi" ><br><br> -->
+                            </div>
+                        </th>
+                    </tr>
+                </table>
                 <input class="submit_create" type="submit" value="Submit">
             </form>
         </div> 

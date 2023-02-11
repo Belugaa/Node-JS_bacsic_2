@@ -4,12 +4,11 @@ const sql = require('mssql/msnodesqlv8')
 // create the connection to database
 const config = {
   server: 'CHUNGVIPPRO\\MSSQLSERVER01',
-  database: 'chung',
+  database: 'qlnv1',
   driver: 'msnodesqlv8',
   options: {
     trustedConnection: true
   }
-  
 }
 
 const conn = new sql.ConnectionPool(config).connect().then(pool =>{
