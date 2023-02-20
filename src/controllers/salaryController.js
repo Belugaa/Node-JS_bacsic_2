@@ -46,6 +46,52 @@ const payRoll = async (req, res) => {
   // console.log(LuongCoBan*HeSoLuong + TongPhuCap - TongKhauTru);
 };
 
+const hesoluong = async (req, res) => {
+  var pool = await conn;
+  var sqlString =
+    "SELECT * FROM Luong;";
+  return await pool.request().query(sqlString, (err, data) => {
+    if (err) {
+      res.status(400).json(err);
+      console.log(err);
+    }
+    res.status(200).json(data.recordset);
+  });
+}
+
+const luongNv = async (req, res) => {
+  var pool = await conn;
+  var sqlString =
+    `select a.MaNhanVien, a.HoTen, b.HeSo, b.LuongCoBan from NhanVien as a join Luong as b on a.MaLuong = b.MaLuong;`;
+  return await pool.request().query(sqlString, (err, data) => {
+    if (err) {
+      res.status(400).json(err);
+      console.log(err);
+    }
+    res.status(200).json(data.recordset);
+  });
+}
+
+const dtluongNv = async (req, res) => {
+  var pool = await conn;
+  var sqlString =
+    `select a.MaNhanVien, a.HoTen, b.HeSo, b.LuongCoBan from NhanVien as a 
+    join Luong as b on a.MaLuong = b.MaLuong
+    where MaNhanVien=@MaNhanVien`;
+  return await pool.request()
+  .input("MaNhanVien", sql.VarChar, req.params.id)
+  .query(sqlString, (err, data) => {
+    if (err) {
+      res.status(400).json(err);
+      console.log(err);
+    }
+    res.status(200).json(data.recordset[0]);
+  });
+}
+
 module.exports = {
   payRoll,
+  hesoluong,
+  luongNv,
+  dtluongNv
 };

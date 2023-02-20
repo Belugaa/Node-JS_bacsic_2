@@ -65,7 +65,5 @@ const createNewAccount = async (req, res) => {
 module.exports = {
   getAllAccounts,
   createNewAccount,
-  // deleteAccount,
-  // updateAccount,
-  // editAccount
+  // deleteAccount
 };
