@@ -7,6 +7,7 @@ router.get('/months', workDayController.getWDbyMonth);
 router.get('/:id', workDayController.getWorkday);
 router.post('/:id/create', workDayController.createWorkDay);
 router.post('/:id/update', workDayController.updateWorkDay);
+router.post('/:id/status', workDayController.updateStatus);
 router.post('/month', workDayController.getWorkDayWithMonth);
 
 module.exports = router;

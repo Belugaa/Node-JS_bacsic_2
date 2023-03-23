@@ -98,7 +98,6 @@ const detailAL = async (req, res) => {
     });
 };
 
-
 const sumAL = async (req, res) => {
   var pool = await conn;
   var sqlString = `
@@ -113,12 +112,11 @@ const sumAL = async (req, res) => {
         res.status(400).json(err);
         console.log(err);
       }
-      if (data.recordset[0].data == null){
+      if (data.recordset[0].data == null) {
         res.status(200).json(0);
-      }
-      else res.status(200).json(data.recordset[0].data);
+      } else res.status(200).json(data.recordset[0].data);
     });
-}
+};
 module.exports = {
   getAll,
   updateAL,
@@ -126,5 +124,5 @@ module.exports = {
   addAL,
   AddAlNv,
   detailAL,
-  sumAL
+  sumAL,
 };

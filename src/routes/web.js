@@ -5,6 +5,7 @@ import workDayRoute from './api/workDayAPI';
 import loginRoute from './api/loginAPI';
 import allowanceRoute from './api/allowanceAPI';
 import deductRoute from './api/deductAPI';
+import fileRoute from './api/fileAPI';
 
 const initWebRoute = (app) => {
     app.use('/account', accountRoute);
@@ -13,7 +14,8 @@ const initWebRoute = (app) => {
     app.use('/workday', workDayRoute);
     app.use('/auth', loginRoute);
     app.use('/phucap', allowanceRoute);
-    app.use('/khautru', deductRoute)
+    app.use('/khautru', deductRoute);
+    app.use('/file', fileRoute);
 }
 
 module.exports = initWebRoute;
